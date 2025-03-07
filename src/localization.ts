@@ -1,5 +1,5 @@
 import { configureLocalization } from '@lit/localize';
-import { sourceLocale, targetLocales } from '../locales/locale-codes.js';
+import { sourceLocale, targetLocales } from '../locales/locale-codes';
 
 // Initialize the localization configuration with dynamic loading
 export const { getLocale, setLocale, } = configureLocalization({

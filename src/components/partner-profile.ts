@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { localized, msg } from '@lit/localize';
-import './flyout-menu';
-import { MenuItem } from './flyout-menu';
+import './index';
+import {MenuItem} from './flyout-menu';
 
 @customElement('partner-profile')
 @localized()

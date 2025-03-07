@@ -1,0 +1,1 @@
+export const GLOBAL_EVENT_NAMESPACE='my-cool-inc::communication::global'

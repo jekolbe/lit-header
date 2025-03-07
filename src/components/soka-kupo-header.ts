@@ -1,9 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { getLocaleFromCookie, setLocale } from '../localization.js';
-import './header-logo';
-import './header-navigation';
-import './header-right-section';
+import './index.js';
+import { GLOBAL_EVENT_NAMESPACE } from '../globals';
 
 @customElement('soka-kupo-header')
 export class SokaKupoHeader extends LitElement {
@@ -54,12 +53,12 @@ export class SokaKupoHeader extends LitElement {
     setLocale(getLocaleFromCookie());
 
     // Listen for global events from parent applications
-    window.addEventListener('soka::communication::global', this._handleGlobalEvents);
+    window.addEventListener(GLOBAL_EVENT_NAMESPACE, this._handleGlobalEvents);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('soka::communication::global', this._handleGlobalEvents);
+    window.removeEventListener(GLOBAL_EVENT_NAMESPACE, this._handleGlobalEvents);
   }
 
   _handleGlobalEvents = (e: Event) => {

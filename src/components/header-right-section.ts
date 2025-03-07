@@ -1,9 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { localized, msg } from '@lit/localize';
-import './logout-timer';
-import './language-picker';
-import './partner-profile';
+import './index';
 
 @customElement('header-right-section')
 @localized()

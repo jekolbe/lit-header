@@ -39,7 +39,7 @@
     <script>
       // Additional manual event injection for testing
       document.getElementById('injectNav').addEventListener('click', () => {
-        const event = new CustomEvent('soka::communication::global', {
+        const event = new CustomEvent('my-cool-inc::communication::global', {
           bubbles: true,
           composed: true,
           detail: {

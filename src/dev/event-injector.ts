@@ -4,6 +4,7 @@
  */
 
 // Import and initialize localization
+import { GLOBAL_EVENT_NAMESPACE } from '../globals/global-namespace';
 import '../localization';
 
 // Wait for the custom elements to be defined
@@ -19,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function injectHeaderEvents() {
   // Inject navigation items
-  const navItemsEvent = new CustomEvent('soka::communication::global', {
+  const navItemsEvent = new CustomEvent(GLOBAL_EVENT_NAMESPACE, {
     bubbles: true,
     composed: true,
     detail: {
@@ -56,7 +57,7 @@ function simulateJWT() {
   console.log('✓ Simulated JWT with expiry in 30 minutes');
   
   // Notify about the JWT change
-  const jwtEvent = new CustomEvent('soka::communication::global', {
+  const jwtEvent = new CustomEvent(GLOBAL_EVENT_NAMESPACE, {
     bubbles: true,
     composed: true,
     detail: {

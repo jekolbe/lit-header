@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { GLOBAL_EVENT_NAMESPACE } from '../globals';
 
 export interface NavigationItem {
   label: string;
@@ -58,12 +59,12 @@ export class HeaderNavigation extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     // Listen for navigation items from parent application
-    window.addEventListener('soka::communication::global', this._handleNavItemsEvent);
+    window.addEventListener(GLOBAL_EVENT_NAMESPACE, this._handleNavItemsEvent);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('soka::communication::global', this._handleNavItemsEvent);
+    window.removeEventListener(GLOBAL_EVENT_NAMESPACE, this._handleNavItemsEvent);
   }
 
   _handleNavItemsEvent = (e: Event) => {

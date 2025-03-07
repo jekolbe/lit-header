@@ -1,9 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { setLocale } from '../localization.js';
-import './flyout-menu';
-import { MenuItem } from './flyout-menu';
-import { localized } from '@lit/localize';
+import { MenuItem } from './index.js';
+import { GLOBAL_EVENT_NAMESPACE } from '../globals';
 
 @customElement('language-picker')
 export class LanguagePicker extends LitElement {
@@ -39,7 +38,7 @@ export class LanguagePicker extends LitElement {
 
   loadLanguageFromCookie() {
     const cookies = document.cookie.split(';');
-    const langCookie = cookies.find(c => c.trim().startsWith('sb-kupo-language='));
+    const langCookie = cookies.find(c => c.trim().startsWith('my-cool-inc-language='));
     
     if (langCookie) {
       const lang = langCookie.split('=')[1].trim();
@@ -55,13 +54,13 @@ export class LanguagePicker extends LitElement {
     // Set cookie with 1 year expiry
     const expiry = new Date();
     expiry.setFullYear(expiry.getFullYear() + 1);
-    document.cookie = `sb-kupo-language=${lang};expires=${expiry.toUTCString()};path=/;`;
+    document.cookie = `my-cool-inc-language=${lang};expires=${expiry.toUTCString()};path=/;`;
     
     // Set the locale for @lit/localize
     setLocale(lang.toLowerCase());
     
     // Dispatch event for parent app to react to language change
-    const event = new CustomEvent('soka::communication::global', {
+    const event = new CustomEvent(GLOBAL_EVENT_NAMESPACE, {
       bubbles: true,
       composed: true,
       detail: {
