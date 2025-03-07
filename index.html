@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOKA-KUPO Header Development</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .container {
+      padding: 20px;
+    }
+    .heading {
+      margin-top: 40px;
+      color: #333;
+    }
+  </style>
+  <!-- Development event injector - not for production -->
+  <script type="module" src="/src/dev/event-injector.ts"></script>
+  <!-- Main component - this will be bundled for production -->
+  <script type="module" src="/src/components/soka-kupo-header.ts"></script>
+</head>
+<body>
+  <soka-kupo-header></soka-kupo-header>
+  
+  <div class="container">
+    <h1 class="heading">SOKA-KUPO Header Development Environment</h1>
+    
+    <h2>Event Testing Tools</h2>
+    <div class="test-controls">
+      <button id="injectNav">Inject Navigation</button>
+      <button id="changeLanguage">Change to EN</button>
+      <button id="simulateLogout">Simulate Logout</button>
+    </div>
+    
+    <script>
+      // Additional manual event injection for testing
+      document.getElementById('injectNav').addEventListener('click', () => {
+        const event = new CustomEvent('soka::communication::global', {
+          bubbles: true,
+          composed: true,
+          detail: {
+            type: 'setNavItems',
+            items: [
+              { label: 'Home', url: '#home' },
+              { label: 'Accounts', url: '#accounts' },
+              { label: 'Settings', url: '#settings' }
+            ]
+          }
+        });
+        window.dispatchEvent(event);
+      });
+      
+      document.getElementById('changeLanguage').addEventListener('click', () => {
+        document.cookie = "sb-kupo-language=EN;path=/;max-age=31536000";
+        window.location.reload();
+      });
+      
+      document.getElementById('simulateLogout').addEventListener('click', () => {
+        document.cookie = "auth_token=;path=/;max-age=-1";
+        window.location.reload();
+      });
+    </script>
+  </div>
+</body>
+</html>

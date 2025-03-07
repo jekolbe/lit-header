@@ -1,0 +1,26 @@
+{
+  "name": "lit-header",
+  "version": "0.1.0",
+  "description": "Embeddable header component built with Lit",
+  "main": "dist/bundle.js",
+  "type": "module",
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "build:watch": "node esbuild.config.js --watch",
+    "serve": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["lit", "web-components", "header"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lit": "^2.8.0",
+    "jwt-decode": "^3.1.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.5",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "@types/node": "^20.8.10"
+  }
+}

@@ -1,0 +1,84 @@
+import { LitElement, html, css } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import './header-logo';
+import './header-navigation';
+import './header-right-section';
+
+@customElement('soka-kupo-header')
+export class SokaKupoHeader extends LitElement {
+  static styles = css`
+    :host {
+      display: block;
+      font-family: 'Source Sans Pro', sans-serif;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #FFFFFF;
+    }
+
+    .header-container {
+      display: flex;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 20px;
+    }
+
+    .logo-section {
+      padding-right: 24px;
+    }
+
+    .navigation-section {
+      height: 100%;
+    }
+
+    .right-section {
+      height: 100%;
+      padding-left: 24px;
+    }
+  `;
+
+  connectedCallback() {
+    super.connectedCallback();
+    // Add the Source Sans Pro font if it's not already on the page
+    if (!document.querySelector('link[href*="Source+Sans+Pro"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap';
+      document.head.appendChild(link);
+    }
+
+    // Listen for global events from parent applications
+    window.addEventListener('soka::communication::global', this._handleGlobalEvents);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('soka::communication::global', this._handleGlobalEvents);
+  }
+
+  _handleGlobalEvents = (e: Event) => {
+    const customEvent = e as CustomEvent;
+    // Handle any global events that should be processed at the header level
+    if (customEvent.detail?.type === 'headerAction') {
+      // Process header-level actions
+    }
+  };
+
+  render() {
+    return html`
+      <div class="header-container">
+        <div class="logo-section">
+          <header-logo></header-logo>
+        </div>
+        <div class="navigation-section">
+          <header-navigation></header-navigation>
+        </div>
+        <div class="right-section">
+          <header-right-section></header-right-section>
+        </div>
+      </div>
+    `;
+  }
+}
