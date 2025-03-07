@@ -1,9 +1,11 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { localized, msg } from '@lit/localize';
 import './flyout-menu';
 import { MenuItem } from './flyout-menu';
 
 @customElement('partner-profile')
+@localized()
 export class PartnerProfile extends LitElement {
   @property({ type: String }) partnerId: string = '';
   @state() menuOpen: boolean = false;
@@ -98,21 +100,21 @@ export class PartnerProfile extends LitElement {
   get profileItems(): MenuItem[] {
     return [
       { 
-        label: 'Profil', 
+        label: msg('Profil'), 
         action: () => {
           this.menuOpen = false;
         },
         href: '/profile'
       },
       { 
-        label: 'Hilfe & Kontakt', 
+        label: msg('Hilfe & Kontakt'), 
         action: () => {
           this.menuOpen = false;
         },
         href: '/help'
       },
       { 
-        label: 'Abmelden', 
+        label: msg('Abmelden'), 
         action: () => {
           this.logout();
           this.menuOpen = false;
@@ -126,7 +128,7 @@ export class PartnerProfile extends LitElement {
       <flyout-menu .items=${this.profileItems} ?open=${this.menuOpen}>
         <div class="profile-toggle">
           <span class="icon">👤</span>
-          ${this.partnerId || 'Benutzer'}
+          ${this.partnerId || msg('Benutzer')}
         </div>
       </flyout-menu>
     `;

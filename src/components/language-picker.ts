@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import { setLocale } from '../localization.js';
 import './flyout-menu';
 import { MenuItem } from './flyout-menu';
+import { localized } from '@lit/localize';
 
 @customElement('language-picker')
 export class LanguagePicker extends LitElement {
@@ -54,6 +56,9 @@ export class LanguagePicker extends LitElement {
     const expiry = new Date();
     expiry.setFullYear(expiry.getFullYear() + 1);
     document.cookie = `sb-kupo-language=${lang};expires=${expiry.toUTCString()};path=/;`;
+    
+    // Set the locale for @lit/localize
+    setLocale(lang.toLowerCase());
     
     // Dispatch event for parent app to react to language change
     const event = new CustomEvent('soka::communication::global', {

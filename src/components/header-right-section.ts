@@ -1,10 +1,12 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { localized, msg } from '@lit/localize';
 import './logout-timer';
 import './language-picker';
 import './partner-profile';
 
 @customElement('header-right-section')
+@localized()
 export class HeaderRightSection extends LitElement {
   static styles = css`
     :host {
@@ -72,7 +74,7 @@ export class HeaderRightSection extends LitElement {
         <language-picker></language-picker>
         <div class="mailbox" @click=${this.handleMailboxClick}>
           <span class="icon">📥</span>
-          <span>Postfach</span>
+          <span>${msg('Postfach')}</span>
         </div>
         <partner-profile></partner-profile>
       </div>

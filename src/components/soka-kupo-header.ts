@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { getLocaleFromCookie, setLocale } from '../localization.js';
 import './header-logo';
 import './header-navigation';
 import './header-right-section';
@@ -48,6 +49,9 @@ export class SokaKupoHeader extends LitElement {
       link.href = 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap';
       document.head.appendChild(link);
     }
+
+    // Initialize the locale from the cookie
+    setLocale(getLocaleFromCookie());
 
     // Listen for global events from parent applications
     window.addEventListener('soka::communication::global', this._handleGlobalEvents);

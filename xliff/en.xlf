@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="en" source-language="de" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="sa02d94fa5282edbf">
+  <source>Profil</source>
+  <target>Profile</target>
+</trans-unit>
+<trans-unit id="s27421fcb6d6ba929">
+  <source>Hilfe &amp; Kontakt</source>
+  <target>Help &amp; contact</target>
+</trans-unit>
+<trans-unit id="sf7421fc8f5906183">
+  <source>Abmelden</source>
+  <target>Sign out</target>
+</trans-unit>
+<trans-unit id="sc40a979c3f30ad50">
+  <source>Benutzer</source>
+  <target>User</target>
+</trans-unit>
+<trans-unit id="s24134328022bc245">
+  <source>Postfach</source>
+  <target>Inbox</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

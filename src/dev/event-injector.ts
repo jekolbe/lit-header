@@ -3,6 +3,9 @@
  * This file should NOT be included in production builds
  */
 
+// Import and initialize localization
+import '../localization';
+
 // Wait for the custom elements to be defined
 window.addEventListener('DOMContentLoaded', () => {
   console.log('🔧 Dev environment: Injecting test events');
