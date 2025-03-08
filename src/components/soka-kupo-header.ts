@@ -27,6 +27,8 @@ export class SokaKupoHeader extends LitElement {
 
     .logo-section {
       padding-right: 24px;
+      display: flex;
+      align-items: center;
     }
 
     .navigation-section {
@@ -73,6 +75,7 @@ export class SokaKupoHeader extends LitElement {
     return html`
       <div class="header-container">
         <div class="logo-section">
+          <yes-no></yes-no>
           <header-logo></header-logo>
         </div>
         <div class="navigation-section">
