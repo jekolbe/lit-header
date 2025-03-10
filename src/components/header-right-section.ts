@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { localized, msg } from '@lit/localize';
 import './index';
+import { GLOBAL_EVENT_NAMESPACE } from '../globals';
 
 @customElement('header-right-section')
 @localized()
@@ -50,7 +51,7 @@ export class HeaderRightSection extends LitElement {
 
   handleMailboxClick() {
     // Dispatch event for parent app
-    const event = new CustomEvent('soka::communication::global', {
+    const event = new CustomEvent(GLOBAL_EVENT_NAMESPACE, {
       bubbles: true,
       composed: true,
       detail: {

@@ -3,6 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { localized, msg } from '@lit/localize';
 import './index';
 import {MenuItem} from './flyout-menu';
+import { GLOBAL_EVENT_NAMESPACE } from '../globals';
 
 @customElement('partner-profile')
 @localized()
@@ -39,13 +40,13 @@ export class PartnerProfile extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     // Listen for JWT updates to extract partner ID
-    window.addEventListener('soka::communication::global', this._handleJwtEvent);
+    window.addEventListener(GLOBAL_EVENT_NAMESPACE, this._handleJwtEvent);
     this.extractPartnerIdFromJwt();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('soka::communication::global', this._handleJwtEvent);
+    window.removeEventListener(GLOBAL_EVENT_NAMESPACE, this._handleJwtEvent);
   }
 
   _handleJwtEvent = (e: Event) => {
@@ -81,7 +82,7 @@ export class PartnerProfile extends LitElement {
       });
       
       // Dispatch event for parent app
-      const event = new CustomEvent('soka::communication::global', {
+      const event = new CustomEvent(GLOBAL_EVENT_NAMESPACE, {
         bubbles: true,
         composed: true,
         detail: {

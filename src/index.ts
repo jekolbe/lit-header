@@ -1,6 +1,6 @@
 
-import './components/soka-kupo-header.ts';
+import './components/header.js';
 
 // Export public components and types
 export * from './types';
-export { SokaKupoHeader } from './components/soka-kupo-header.js';
+export { Header } from './components/header.js';

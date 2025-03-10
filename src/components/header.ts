@@ -2,10 +2,10 @@ import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { getLocaleFromCookie, setLocale } from '../localization.js';
 import './index.js';
-import { GLOBAL_EVENT_NAMESPACE } from '../globals';
+import { GLOBAL_EVENT_NAMESPACE } from '../globals/index.js';
 
-@customElement('soka-kupo-header')
-export class SokaKupoHeader extends LitElement {
+@customElement('my-cool-inc-header')
+export class Header extends LitElement {
   static styles = css`
     :host {
       display: block;

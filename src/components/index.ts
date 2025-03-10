@@ -5,5 +5,5 @@ export * from './header-right-section';
 export * from './language-picker';
 export * from './logout-timer';
 export * from './partner-profile';
-export * from './soka-kupo-header';
+export * from './header';
 export * from './yes-no';

@@ -2,7 +2,7 @@
 
 This project serves as a **showcase** for a simple webpage header build with **[Lit](https://lit.dev/docs/)**.
 
-The exposed top-level component `soka-kupo-header` can be included as **[Web Component](https://developer.mozilla.org/de/docs/Web/API/Web_components)** in every browser simple by importing the `bundle.js`.
+The exposed top-level component `my-cool-inc-header` can be included as **[Web Component](https://developer.mozilla.org/de/docs/Web/API/Web_components)** in every browser simple by importing the `bundle.js`.
 
 ## Motivation
 
@@ -28,7 +28,7 @@ Open `localhost:3000` and play around
 
 ## Communication
 
-Communication between header and inner app happenes via standard browser **[Events](https://developer.mozilla.org/de/docs/Web/API/Event)**. For this purpose a separate library can be integrated which serves as an abstraction of `addEventListener` and `dispatchEvent`. Check out the `Inject Navigation` button for more information
+Communication between header and inner app happenes via standard browser **[Events](https://developer.mozilla.org/de/docs/Web/API/Event)**. For this purpose a separate library can be integrated which serves as an abstraction of `addEventListener` and `dispatchEvent`. Check out the `Inject Navigation` button on the landing page.
 
 ## i18n
 
